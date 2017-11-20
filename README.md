@@ -51,4 +51,4 @@
 ## Libraries
 
   * `CryptoLib` - Contains implementations of low-level crypto routines in native (C) with non-native fallbacks.
-  * `Client` - The client SDK used by apps to connect end-users to the network through the *PublicApi* backend service.
+  * `Client` - Client SDK for apps to connect end-users to the network through the *PublicApi* backend service.
