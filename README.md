@@ -41,7 +41,7 @@
   * `PublicApi` - Exposes public web API (such as REST or JSON-RPC) to clients.
   * `TransactionPool` - Holds all pending transactions and a knowledge of past confirmed transactions.
   * `Broadcast` - Propagates information between all clusters in an efficient manner.
-  * `Consensus` - Logic for the consensus algorithm allowing the separate clusters achieve a shared view of the world.
+  * `Consensus` - Logic for consensus algorithm allowing separate clusters achieve a shared view of the world.
   * `StateStorage` - Holds all state (mutable and immutable) updated for the latest closed block.
   * `JournalStorage` - Holds incremental long-term storage used to generate the state (all past closed blocks).
   * `VirtualMachine` - Owns execution of smart contracts and holds the transient state for a pre-final execution.
