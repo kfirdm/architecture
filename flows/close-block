@@ -1,0 +1,30 @@
+// leader cluster
+Consensus: TransactionPool.GetNextPendingTransactionBatch
+Consensus: Broadcast.AnnounceNextBlock
+Consensus: VirtualMachine.ExecuteBlock // see flows/execute-block
+
+... (broadcast protocol)
+
+// all other clusters as validators
+Broadcast: Broadcast.NextBlockAnnounced
+Broadcast: Consensus.ValidateBlock
+Consensus: VirtualMachine.ExecuteBlock // see flows/execute-block
+Consensus: Broadcast.AnnounceBlockValidation
+
+... (broadcast protocol)
+
+// leader cluster
+Broadcast: Broadcast.BlockValidationAnnounced
+Broadcast: Consensus.BlockValidationReceived
+
+// leader cluster after enough validations
+Consensus: Broadcast.AnnounceClosedBlock
+Consensus: StateStorage.ClosedBlockReceived
+Consensus: JournalStorage.ClosedBlockReceived
+
+... (broadcast protocol)
+
+// all other clusters
+Broadcast: Broadcast.ClosedBlockAnnounced
+Broadcast: StateStorage.ClosedBlockReceived
+Broadcast: JournalStorage.ClosedBlockReceived

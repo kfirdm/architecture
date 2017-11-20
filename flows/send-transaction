@@ -1,0 +1,16 @@
+// end-user client
+App: Client.CreateTransaction
+App: Client.SendTransaction
+
+... (public protocol)
+
+// cluster receiving transaction from client
+PublicApi: PublicApi.TransactionReceived
+PublicApi: TransactionPool.AddNewPendingTransaction
+TransactionPool: Broadcast.AnnounceTransaction
+
+... (broadcast protocol)
+
+// all other clusters
+Broadcast: Broadcast.TransactionAnnounced
+Broadcast: TransactionPool.AddExistingPendingTransaction
