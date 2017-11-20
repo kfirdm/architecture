@@ -4,13 +4,13 @@ App: Client.SendTransaction
 
 ... (public protocol)
 
-// cluster receiving transaction from client
+// node receiving transaction from client
 PublicApi: PublicApi.TransactionReceived
 PublicApi: TransactionPool.AddNewPendingTransaction
 TransactionPool: Broadcast.AnnounceTransaction
 
 ... (broadcast protocol)
 
-// all other clusters
+// all other nodes
 Broadcast: Broadcast.TransactionAnnounced
 Broadcast: TransactionPool.AddExistingPendingTransaction
