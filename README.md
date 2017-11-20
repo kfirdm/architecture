@@ -43,7 +43,7 @@
   * `Broadcast` - Propagates information between all clusters in an efficient manner.
   * `Consensus` - Logic for the consensus algorithm allowing the separate clusters achieve a shared view of the world.
   * `StateStorage` - Holds all state (mutable and immutable) updated for the latest closed block.
-  * `JournalStorage` - Holds the incremental long-term log storage used to generate the state (all past closed blocks).
+  * `JournalStorage` - Holds incremental long-term storage used to generate the state (all past closed blocks).
   * `VirtualMachine` - Owns execution of smart contracts and holds the transient state for a pre-final execution.
   * `Processor` - The actual runtime environments for a smart contract in various languages (Python / JS / etc).
   * `TimeSync` - Synchronizes clocks, required to run on every machine that runs *TransactionPool* or *Consensus*.
