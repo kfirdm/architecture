@@ -37,16 +37,77 @@
   * The external communication protocol of same service peers in different nodes is under the responsibility of the service.
 
 ## Services
+<style>
+  table.arch-table {
+    width: 100%;
+  }
+  table.arch-table td{
+    width: 16%;
+    height: 50px;
+    text-align: center;
+    background: lightgrey;
+    color: black;
+  }
+  table.arch-table td.not-implemented {
+    color: grey;
+  }
+  table.arch-table th {
+    width: 16%;
+    borders: none;
+    background:green;
+    font-weight: 100;
+  }
+
+</style>
+<table class="arch-table">
+  <tr>
+    <td>TimeSync</td>
+    <td>Gossip</td>
+    <td colspan="3"></td>
+    <th>Layer IV<br>communications</th>
+  </tr>
+  <tr>
+    <td colspan="2">
+      Consensus
+      <table class="arch-table">
+      <tr>
+        <td>TransactionPool</td>
+      </tr>
+      </table>
+    </td>
+    <td colspan="3">
+      VirtualMachine
+      <table class="arch-table">
+      <tr>
+        <td>Processor</td>
+      </tr>
+      </table>
+    </td>
+    <th>Layer III<br>blockchain</th>
+  </tr>
+  <tr>
+    <td>JournalStorage</td>
+    <td colspan="3">StateStorage</td>
+    <td class="not-implemented">SidechainConnector</td>
+    <th>Layer II<br>high-level storage</th>
+  </tr>
+  <tr>
+    <td colspan="4">Raw Storage</td>
+    <td class="not-implemented">Other blockchain</td>
+    <th>Layer I<br>low-level storage</th>
+  </tr>
+</table>
+
 
   * `PublicApi` - Exposes public web API (such as REST or JSON-RPC) to clients.
-  * `TransactionPool` - Holds all pending transactions and a knowledge of past confirmed transactions.
   * `Broadcast` - Propagates information between all nodes in an efficient manner.
   * `Consensus` - Logic for consensus algorithm allowing separate nodes achieve a shared view of the world.
+    * `TransactionPool` - Holds all pending transactions and a knowledge of past confirmed transactions.
+  * `VirtualMachine` - Owns execution of smart contracts and holds the transient state for a pre-final execution.
+    * `Processor` - The actual runtime environments for a smart contract in various languages (Python / JS / etc).
   * `StateStorage` - Holds all state (mutable and immutable) updated for the latest closed block.
   * `JournalStorage` - Holds incremental long-term storage used to generate the state (all past closed blocks).
-  * `VirtualMachine` - Owns execution of smart contracts and holds the transient state for a pre-final execution.
-  * `Processor` - The actual runtime environments for a smart contract in various languages (Python / JS / etc).
-  * `TimeSync` - Synchronizes clocks, required to run on every machine that runs *TransactionPool* or *Consensus*.
+  * `TimeSync` - Synchronizes clocks, required to run on every machine that runs       *TransactionPool* or *Consensus*.
 
 ## Libraries
 

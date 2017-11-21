@@ -1,6 +1,6 @@
 import "primitives/all.proto";
 
-service Broadcast {
+service Gossip {
   rpc AnnounceTransaction (AnnounceTransactionInput) returns (AnnounceTransactionOutput);
   rpc TransactionAnnounced (AnnounceTransactionInput) returns (AnnounceTransactionOutput);
   rpc AnnounceNextBlock (AnnounceNextBlockInput) returns (AnnounceNextBlockOutput);
