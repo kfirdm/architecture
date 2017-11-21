@@ -37,64 +37,42 @@
   * The external communication protocol of same service peers in different nodes is under the responsibility of the service.
 
 ## Services
-<style>
-  table.arch-table {
-    width: 100%;
-  }
-  table.arch-table td{
-    width: 16%;
-    height: 50px;
-    text-align: center;
-    background: lightgrey;
-    color: black;
-  }
-  table.arch-table td.not-implemented {
-    color: grey;
-  }
-  table.arch-table th {
-    width: 16%;
-    borders: none;
-    background:green;
-    font-weight: 100;
-  }
-
-</style>
-<table class="arch-table">
+<table class="arch-table" style="width:100%">
   <tr>
-    <td>TimeSync</td>
-    <td>Gossip</td>
-    <td colspan="3"></td>
-    <th>Layer IV<br>communications</th>
+    <td style="width:16%;height:50px;text-align:center;background:lightgrey;color:black">TimeSync</td>
+    <td style="width:16%;height:50px;text-align:center;background:lightgrey;color:black">Gossip</td>
+    <td style="width:16%;height:50px;text-align:center;background:lightgrey;color:black" colspan="3"></td>
+    <th style="width:16%;borders:none;background:green;font-weight:100">Layer IV<br>communications</th>
   </tr>
   <tr>
-    <td colspan="2">
+    <td style="width:16%;height:50px;text-align:center;background:lightgrey;color:black" colspan="2">
       Consensus
       <table class="arch-table">
       <tr>
-        <td>TransactionPool</td>
+        <td style="width:16%;height:50px;text-align:center;background:lightgrey;color:black">TransactionPool</td>
       </tr>
       </table>
     </td>
-    <td colspan="3">
+    <td style="width:16%;height:50px;text-align:center;background:lightgrey;color:black" colspan="3">
       VirtualMachine
       <table class="arch-table">
       <tr>
-        <td>Processor</td>
+        <td style="width:16%;height:50px;text-align:center;background:lightgrey;color:black">Processor</td>
       </tr>
       </table>
     </td>
-    <th>Layer III<br>blockchain</th>
+    <th style="width:16%;borders:none;background:green;font-weight:100">Layer III<br>blockchain</th>
   </tr>
   <tr>
-    <td>JournalStorage</td>
-    <td colspan="3">StateStorage</td>
-    <td class="not-implemented">SidechainConnector</td>
-    <th>Layer II<br>high-level storage</th>
+    <td style="width:16%;height:50px;text-align:center;background:lightgrey;color:black">JournalStorage</td>
+    <td style="width:16%;height:50px;text-align:center;background:lightgrey;color:black" colspan="3">StateStorage</td>
+    <td style="width:16%;height:50px;text-align:center;background:lightgrey;color:black" class="not-implemented">SidechainConnector</td>
+    <th style="width:16%;borders:none;background:green;font-weight:100">Layer II<br>high-level storage</th>
   </tr>
   <tr>
-    <td colspan="4">Raw Storage</td>
-    <td class="not-implemented">Other blockchain</td>
-    <th>Layer I<br>low-level storage</th>
+    <td style="width:16%;height:50px;text-align:center;background:lightgrey;color:black" colspan="4">Raw Storage</td>
+    <td style="width:16%;height:50px;text-align:center;background:lightgrey;color:black" class="not-implemented">Other blockchain</td>
+    <th style="width:16%;borders:none;background:green;font-weight:100">Layer I<br>low-level storage</th>
   </tr>
 </table>
 
