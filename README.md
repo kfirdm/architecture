@@ -37,6 +37,17 @@
   * The external communication protocol of same service peers in different nodes is under the responsibility of the service.
 
 ## Services
+
+  * `PublicApi` - Exposes public web API (such as REST or JSON-RPC) to clients.
+  * `Gossip` - Propagates information between all nodes in an efficient manner.
+  * `Consensus` - Logic for consensus algorithm allowing separate nodes achieve a shared view of the world.
+    * `TransactionPool` - Holds all pending transactions and a knowledge of past confirmed transactions.
+  * `VirtualMachine` - Owns execution of smart contracts and holds the transient state for a pre-final execution.
+    * `Processor` - The actual runtime environments for a smart contract in various languages (Python / JS / etc).
+  * `StateStorage` - Holds all state (mutable and immutable) updated for the latest closed block.
+  * `JournalStorage` - Holds incremental long-term storage used to generate the state (all past closed blocks).
+  * `TimeSync` - Synchronizes clocks, required to run on every machine that runs       *TransactionPool* or *Consensus*.
+
 <table class="arch-table" style="width:100%">
   <tr>
     <td style="width:16%;height:50px;text-align:center;background:lightgrey;color:black">TimeSync</td>
@@ -76,18 +87,7 @@
   </tr>
 </table>
 
-
-  * `PublicApi` - Exposes public web API (such as REST or JSON-RPC) to clients.
-  * `Broadcast` - Propagates information between all nodes in an efficient manner.
-  * `Consensus` - Logic for consensus algorithm allowing separate nodes achieve a shared view of the world.
-    * `TransactionPool` - Holds all pending transactions and a knowledge of past confirmed transactions.
-  * `VirtualMachine` - Owns execution of smart contracts and holds the transient state for a pre-final execution.
-    * `Processor` - The actual runtime environments for a smart contract in various languages (Python / JS / etc).
-  * `StateStorage` - Holds all state (mutable and immutable) updated for the latest closed block.
-  * `JournalStorage` - Holds incremental long-term storage used to generate the state (all past closed blocks).
-  * `TimeSync` - Synchronizes clocks, required to run on every machine that runs       *TransactionPool* or *Consensus*.
-
 ## Libraries
 
-  * `CryptoLib` - Contains implementations of low-level crypto routines in native (C) with non-native fallbacks.
+  * `Crypto` - Contains implementations of low-level crypto routines in native (C) with non-native fallbacks.
   * `Client` - Client SDK for apps to connect end-users to the network through the *PublicApi* backend service.
