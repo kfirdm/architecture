@@ -48,6 +48,11 @@
   * `JournalStorage` - Holds incremental long-term storage used to generate the state (all past closed blocks).
   * `TimeSync` - Synchronizes clocks, required to run on every machine that runs       *TransactionPool* or *Consensus*.
 
+## Libraries
+
+  * `Crypto` - Contains implementations of low-level crypto routines in native (C) with non-native fallbacks.
+  * `Client` - Client SDK for apps to connect end-users to the network through the *PublicApi* backend service.
+  
 ## Architecture Diagram
 
 <table class="arch-table" style="width:100%">
@@ -59,7 +64,7 @@
   </tr>
   <tr>
     <td style="width:16%;height:50px;text-align:center;background:lightgrey;color:black" colspan="2">
-      Consensus
+      Consensus<br><br>
       <table class="arch-table">
       <tr>
         <td style="width:16%;height:50px;text-align:center;background:lightgrey;color:black">TransactionPool</td>
@@ -67,7 +72,7 @@
       </table>
     </td>
     <td style="width:16%;height:50px;text-align:center;background:lightgrey;color:black" colspan="3">
-      VirtualMachine
+      VirtualMachine<br><br>
       <table class="arch-table">
       <tr>
         <td style="width:16%;height:50px;text-align:center;background:lightgrey;color:black">Processor</td>
@@ -89,7 +94,3 @@
   </tr>
 </table>
 
-## Libraries
-
-  * `Crypto` - Contains implementations of low-level crypto routines in native (C) with non-native fallbacks.
-  * `Client` - Client SDK for apps to connect end-users to the network through the *PublicApi* backend service.
