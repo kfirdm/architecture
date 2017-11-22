@@ -7,10 +7,10 @@ App: Client.SendTransaction
 // node receiving transaction from client
 PublicApi: PublicApi.TransactionReceived
 PublicApi: TransactionPool.AddNewPendingTransaction
-TransactionPool: Broadcast.AnnounceTransaction
+TransactionPool: Gossip.AnnounceTransaction
 
-... (broadcast protocol)
+... (gossip protocol)
 
 // all other nodes
-Broadcast: Broadcast.TransactionAnnounced
-Broadcast: TransactionPool.AddExistingPendingTransaction
+Gossip: Gossip.TransactionAnnounced
+Gossip: TransactionPool.AddExistingPendingTransaction
