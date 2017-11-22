@@ -48,6 +48,8 @@
   * `JournalStorage` - Holds incremental long-term storage used to generate the state (all past closed blocks).
   * `TimeSync` - Synchronizes clocks, required to run on every machine that runs       *TransactionPool* or *Consensus*.
 
+## Architecture Diagram
+
 <table class="arch-table" style="width:100%">
   <tr>
     <td style="width:16%;height:50px;text-align:center;background:lightgrey;color:black">TimeSync</td>
