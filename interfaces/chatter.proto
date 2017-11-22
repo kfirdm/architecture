@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+service Chatter {
+  rpc GetVersion (GetVersionInput) returns (GetVersionOutput);
+}
+
+message GetVersionInput {
+  string whoAsks = 1;
+}
+
+message GetVersionOutput {
+  string version = 1;
+}
