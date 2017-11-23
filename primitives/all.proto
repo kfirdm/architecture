@@ -1,3 +1,4 @@
 syntax = "proto3";
 
 import "heartbeat.proto";
+import "transactions.proto";

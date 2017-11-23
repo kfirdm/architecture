@@ -4,4 +4,13 @@ import "../primitives/all.proto";
 
 service TransactionPool {
   rpc GetHeartbeat (GetHeartbeatInput) returns (GetHeartbeatOutput);
+  rpc AddNewPendingTransaction (AddNewPendingTransactionInput) returns (AddNewPendingTransactionOutput);
+}
+
+message AddNewPendingTransactionInput {
+  Transaction transaction = 1;
+}
+
+message AddNewPendingTransactionOutput {
+  // empty
 }
