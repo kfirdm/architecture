@@ -4,4 +4,13 @@ import "../primitives/all.proto";
 
 service Gossip {
   rpc GetHeartbeat (GetHeartbeatInput) returns (GetHeartbeatOutput);
+  rpc AnnounceTransaction (AnnounceTransactionInput) returns (AnnounceTransactionOutput);
+}
+
+message AnnounceTransactionInput {
+  Transaction transaction = 1;
+}
+
+message AnnounceTransactionOutput {
+  // empty
 }
