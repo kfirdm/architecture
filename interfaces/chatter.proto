@@ -1,13 +1,7 @@
 syntax = "proto3";
 
+import "../primitives/all.proto";
+
 service Chatter {
-  rpc GetVersion (GetVersionInput) returns (GetVersionOutput);
-}
-
-message GetVersionInput {
-  string whoAsks = 1;
-}
-
-message GetVersionOutput {
-  string version = 1;
+  rpc GetHeartbeat (GetHeartbeatInput) returns (GetHeartbeatOutput);
 }

@@ -1,13 +1,7 @@
-import "primitives/all.proto";
+syntax = "proto3";
+
+import "../primitives/all.proto";
 
 service PublicApi {
-  rpc TransactionReceived (TransactionReceivedInput) returns (TransactionReceivedOutput);
-}
-
-message TransactionReceivedInput {
-  Transaction transaction;
-}
-
-message TransactionReceivedOutput {
-  // empty
+  rpc GetHeartbeat (GetHeartbeatInput) returns (GetHeartbeatOutput);
 }
