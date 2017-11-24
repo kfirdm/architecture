@@ -1,6 +1,7 @@
 syntax = "proto3";
 
-import "../primitives/all.proto";
+import "primitives/heartbeat.proto";
+import "primitives/transactions.proto";
 
 service Gossip {
   rpc GetHeartbeat (GetHeartbeatInput) returns (GetHeartbeatOutput);
