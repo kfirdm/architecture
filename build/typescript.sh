@@ -8,4 +8,6 @@ mkdir -p ./dist
   ./interfaces/*.proto > \
   ./dist/protos.json
 
-# todo: add step to create index.d.ts from protos.json
+node ./build/src/ts-index.js > ./dist/index.js
+
+node ./build/src/ts-index-d.js > ./dist/index.d.ts
