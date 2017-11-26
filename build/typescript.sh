@@ -11,3 +11,7 @@ mkdir -p ./dist
 node ./build/src/ts-index.js > ./dist/index.js
 
 node ./build/src/ts-index-d.js > ./dist/index.d.ts
+
+echo
+echo "Done generating TypeScript types from *.proto"
+echo
