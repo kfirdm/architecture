@@ -111,3 +111,5 @@ export interface ClientMap {
   transactionPool?: TransactionPoolClient;
   gossip?: GossipClient;
 }
+
+export type HeardbeatClient = ChatterClient;
