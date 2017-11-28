@@ -71,7 +71,20 @@ Once we get past initial setup, [Consul](https://www.consul.io/) can be used for
 
 #### Alternatives
 
-TODO: Rollbar, Sentry
+[Sentry](https://sentry.io/) and [Rollbar](https://rollbar.com/) are New Relic alternatives
+
+- [Rollbar live demo](https://rollbar.com/demo/demo/) looks to have pretty
+  similar features to New Relic. Downside is minimal language support compared
+  to New Relic and Sentry.
+- [Sentry demo video](https://www.youtube.com/watch?v=D060ACRPj6I) also shows
+  it has similar error reporting features as New Relic.
+
+### Tracing
+
+[Jaeger](http://jaeger.readthedocs.io/) looks like an interesting [OpenTracing](http://opentracing.io/)-compatible
+tracing solution.
+
+**NOTE** An APM solution might be enough for starters.
 
 ### System Monitoring
 
