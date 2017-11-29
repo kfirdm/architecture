@@ -35,7 +35,7 @@ Instead, we should use the the host network or a custom bridge e.g. [Weave](http
 
 Also UDP traffic is known to have some issues. This will probably be resolved in a future version.
 
-#### Prductivity
+#### Productivity
 
 Taking the time to dockerize apps is sometime unnecessary and costs precious time.
 If an application has another standard way of deploying without Docker it is advised to do so.
@@ -48,7 +48,9 @@ If an application has another standard way of deploying without Docker it is adv
 
 The following services will be used for initial development and testing.
 
-**NOTE** component images are just an example. They don't have to be written in Python or Go.
+**NOTE** component images and techonlogies are just an example:
+Implementations are language-agnostic. As long as a service complies with the shared communication interface,
+it doesn't matter which language or tools its built on, be it Python, Go, JS, etc.
 
 <p align="center"><img src="node.png?raw=true" alt="Topology"/></p>
 
@@ -58,7 +60,7 @@ Once we get past initial setup, [Consul](https://www.consul.io/) can be used for
 
 1. More modern than [ZooKeeper](https://www.consul.io/intro/vs/zookeeper.html), and written in a modern language (Go).
 1. Rapidly becoming the "way to go" solution for most companies.
-1. We have experience with it internally (also in Kik).
+1. We have experience with it internally.
 
 ### APM
 
