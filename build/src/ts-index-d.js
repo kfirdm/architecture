@@ -5,7 +5,9 @@ const _ = require("lodash");
 
 const TYPE_REPLACEMENTS = {
   "string": "string",
-  "uint64": "number" // todo: should be Long from https://github.com/dcodeIO/long.js
+  "uint64": "number", // todo: should be Long from https://github.com/dcodeIO/long.js
+  "bytes": "Buffer",
+  "bool": "boolean"
 };
 
 const jsonPath = path.resolve(__dirname, "../../dist/protos.json");

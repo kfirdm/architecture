@@ -5,13 +5,20 @@ import "primitives/transactions.proto";
 
 service Gossip {
   rpc GetHeartbeat (GetHeartbeatInput) returns (GetHeartbeatOutput);
-  rpc AnnounceTransaction (AnnounceTransactionInput) returns (AnnounceTransactionOutput);
+  rpc BroadcastMessage (BroadcastMessageInput) returns (BroadcastMessageOutput);
 }
 
-message AnnounceTransactionInput {
-  Transaction transaction = 1;
+enum Recipient {
+  Gossip = 1;
+  Consensus = 2;
 }
 
-message AnnounceTransactionOutput {
+message BroadcastMessageInput {
+  string BroadcastGroup=1;
+  string MessageType=2;
+  bytes Buffer = 3;
+  bool Immediate = 4;
+}
+message BroadcastMessageOutput {
   // empty
 }
