@@ -6,6 +6,8 @@ import "primitives/transactions.proto";
 service Gossip {
   rpc GetHeartbeat (GetHeartbeatInput) returns (GetHeartbeatOutput);
   rpc BroadcastMessage (BroadcastMessageInput) returns (BroadcastMessageOutput);
+  rpc UnicastMessage (UnicastMessageInput) returns (UnicastMessageOutput);
+  rpc Listen(ListenInput) returns (stream ReceivedMessage);
 }
 
 enum Recipient {
@@ -21,4 +23,29 @@ message BroadcastMessageInput {
 }
 message BroadcastMessageOutput {
   // empty
+}
+
+message UnicastMessageInput {
+  string Recipient=1;
+  string MessageType=2;
+  bytes Buffer = 3;
+  bool Immediate = 4;
+}
+message UnicastMessageOutput {
+  // empty
+}
+
+message ListenInput {
+  repeated string listenGroup=1;
+}
+
+message ListenOutput {
+  // empty;
+}
+
+message ReceivedMessage {
+  string FromAddress = 1;
+  string BroadcastGroup = 2; // null for unicast messages
+  string MessageType = 3;
+  bytes Buffer = 4;
 }
