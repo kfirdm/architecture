@@ -40,7 +40,11 @@ function exportMessage(name, json) {
     if (TYPE_REPLACEMENTS[type]) {
       type = TYPE_REPLACEMENTS[type];
     }
-    console.log(`  ${key}: ${type};`);
+    let modifier = "";
+    if (_.get(value, "rule") === "repeated") {
+      modifier = "[]";
+    }
+    console.log(`  ${key}: ${type}${modifier};`);
   });
   console.log(`}`);
   console.log();
@@ -61,17 +65,36 @@ function exportServiceMethod(name, json) {
   const req = _.get(json, "requestType");
   const res = _.get(json, "responseType");
   console.log(`  req: ${req};`);
-  console.log(`  res: ${res};`);
+  if (_.get(json, "responseStream")) {
+    console.log(`  write: (message: ${_.get(json, "responseType")})=>void;`);
+  }
+  else {
+    console.log(`  res: ${res};`);
+  }
   console.log(`}`);
   console.log();
 }
 
 function exportServiceClient(name, json) {
+  _.forEach(json, (value, key) => {
+    if (_.get(value, "responseStream")) {
+      const res = _.get(value, "responseType");
+      console.log(`export interface ${name}Client${key}ReadableStream {`);
+      console.log(`  onmessage: (message: ${res})=>void;`);
+      console.log(`}`);
+    }
+  });
   console.log(`export interface ${name}Client {`);
   _.forEach(json, (value, key) => {
     const req = _.get(value, "requestType");
     const res = _.get(value, "responseType");
-    console.log(`  ${_.lowerFirst(key)}(${_.lowerFirst(req)}: ${req}): ${res};`);
+    if (_.get(value, "responseStream")) {
+      console.log(`  ${_.lowerFirst(key)}(${_.lowerFirst(req)}: ${req}): ${name}Client${key}ReadableStream;`);
+    }
+    else {
+      console.log(`  ${_.lowerFirst(key)}(${_.lowerFirst(req)}: ${req}): ${res};`);
+
+    }
   });
   console.log(`}`);
   console.log();
